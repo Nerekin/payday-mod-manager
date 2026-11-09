@@ -1,0 +1,9 @@
+# Скомпільовані бінарники
+my_mods
+*.o
+*.out
+
+# Тимчасові файли та кеш
+.vscode/
+.cache/
+compile_commands.json
