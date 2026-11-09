@@ -12,6 +12,27 @@ void addMod(std::vector<Mod>& mods, const Mod& new_mod) {
     mods.push_back(new_mod);
 }
 
+bool toggleModStatus(std::vector<Mod>& mods, const std::string& name) {
+    for(Mod& mod : mods) {
+         if(mod.name == name) {
+              mod.installed = !mod.installed;
+              return 1;
+            }
+        }
+        std::cout << "Mod not found\n";
+        return 0;
+    }
+
+void findMod(const std::vector<Mod>& mods, const std::string& name) {
+    for(const Mod& mod : mods) {
+        if(mod.name == name) {
+             std::cout << mod.name << "  " << mod.version << "   " << (mod.installed ? "installed" : "not installed") << std::endl;
+             return;
+            }
+        }
+        std::cout << "Mod not found\n";
+} 
+
 void showMods(const std::vector<Mod>& mods) {
     if(mods.empty()) {
         std::cout << "No mods installed\n";
@@ -23,18 +44,6 @@ void showMods(const std::vector<Mod>& mods) {
     }
 }
 
-void findmod(const std::vector<Mod>& mods, const std::string& name) {
-        for(const Mod& mod : mods) {
-            if(mod.name == name) {
-                std::cout << mod.name << "  " << mod.version << "   " << (mod.installed ? "installed" : "not installed") << std::endl;
-                return;
-            }
-        }
-        std::cout << "Mod not found\n";
-}   
-
-
-
 int main() {
     std::vector<Mod> mods;
 
@@ -44,7 +53,13 @@ int main() {
     showMods(mods);
 
     std::string mod_name = "WolfHud";
-    findmod(mods, mod_name);
+    findMod(mods, mod_name);
     
-    findmod(mods, "Jacobmod");
+    findMod(mods, "Jacobmod");
+
+    toggleModStatus(mods, "WolfHud");
+
+    showMods(mods);
+
+    toggleModStatus(mods, "ABCD");
 }
