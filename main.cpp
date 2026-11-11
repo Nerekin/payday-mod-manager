@@ -82,8 +82,16 @@ do {
             addMod(mods, new_mod);
             break;
         }
-        case 3: {
+
+        case 4: {
+            std::string name;
+
+            std::cout << "Write the mod name: ";
+            std::cin >> name;
             
+            findMod(mods, name);
+
+            break;
         }
 
         default:
