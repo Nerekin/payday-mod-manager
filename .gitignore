@@ -1,4 +1,5 @@
 # Скомпільовані бінарники
+mod-manager
 my_mods
 *.o
 *.out

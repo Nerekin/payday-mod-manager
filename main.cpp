@@ -17,10 +17,11 @@ bool toggleModStatus(std::vector<Mod>& mods, const std::string& name) {
     for(Mod& mod : mods) {
          if(mod.name == name) {
               mod.installed = !mod.installed;
+              std::cout << "\nStatus is changed\n";
               return 1;
             }
         }
-        std::cout << "Mod not found\n";
+        std::cout << "\nMod not found\n";
         return 0;
     }
 
@@ -31,15 +32,16 @@ void findMod(const std::vector<Mod>& mods, const std::string& name) {
              return;
             }
         }
-        std::cout << "Mod not found\n";
+        std::cout << "\nMod not found\n";
 } 
 
 void showMods(const std::vector<Mod>& mods) {
     if(mods.empty()) {
-        std::cout << "No mods installed\n";
+        std::cout << "\nNo mods installed\n";
     }
     else{
     for(const Mod& element : mods) {
+        std::cout << "\n--------Mods----------\n";
         std::cout << element.name << "  " << element.version << "   " << (element.installed ? "installed" : "not installed") << std::endl;
         }
     }
@@ -71,7 +73,7 @@ do {
         case 2: {
             Mod new_mod;
 
-            std::cout << "Write the mod name: ";
+            std::cout << "\nWrite the mod name: ";
             std::cin >> new_mod.name;
 
             std::cout << "Write the mod version: ";
@@ -86,7 +88,7 @@ do {
         case 3: {
             std::string name;
 
-            std::cout << "Write the mod name: ";
+            std::cout << "\nWrite the mod name: ";
             std::cin >> name;
             
             toggleModStatus(mods, name);
@@ -98,7 +100,7 @@ do {
         case 4: {
             std::string name;
 
-            std::cout << "Write the mod name: ";
+            std::cout << "\nWrite the mod name: ";
             std::cin >> name;
             
             findMod(mods, name);
@@ -107,8 +109,10 @@ do {
         }
 
         default:
-            std::cout << "Write a valid number\n";
-            break;
+            if (choice != 0) {
+                std::cout << "\nWrite a valid number\n";
+                break;
+            }
     }   
 
 } while (choice != 0);
