@@ -83,6 +83,18 @@ do {
             break;
         }
 
+        case 3: {
+            std::string name;
+
+            std::cout << "Write the mod name: ";
+            std::cin >> name;
+            
+            toggleModStatus(mods, name);
+
+            break;
+        }
+
+
         case 4: {
             std::string name;
 
