@@ -18,11 +18,11 @@ bool toggleModStatus(std::vector<Mod>& mods, const std::string& name) {
          if(mod.name == name) {
               mod.installed = !mod.installed;
               std::cout << "\nStatus is changed\n";
-              return 1;
+              return true;
             }
         }
         std::cout << "\nMod not found\n";
-        return 0;
+        return false;
     }
 
 void findMod(const std::vector<Mod>& mods, const std::string& name) {
@@ -74,10 +74,10 @@ do {
             Mod new_mod;
 
             std::cout << "\nWrite the mod name: ";
-            std::cin >> new_mod.name;
+            std::getline(std::cin >> std::ws, new_mod.name);
 
             std::cout << "Write the mod version: ";
-            std::cin >> new_mod.version;
+            std::getline(std::cin >> std::ws, new_mod.version);
 
             new_mod.installed = true;
 
@@ -89,7 +89,7 @@ do {
             std::string name;
 
             std::cout << "\nWrite the mod name: ";
-            std::cin >> name;
+            std::getline(std::cin >> std::ws, name);
             
             toggleModStatus(mods, name);
 
@@ -101,7 +101,7 @@ do {
             std::string name;
 
             std::cout << "\nWrite the mod name: ";
-            std::cin >> name;
+            std::getline(std::cin >> std::ws, name);
             
             findMod(mods, name);
 

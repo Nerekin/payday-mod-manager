@@ -8,3 +8,4 @@ my_mods
 .vscode/
 .cache/
 compile_commands.json
+mod-manager
