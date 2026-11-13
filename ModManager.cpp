@@ -1,5 +1,4 @@
 #include "ModManager.h"
-#include <iostream>
 
 void addMod(std::vector<Mod>& mods, const Mod& new_mod) {
     mods.push_back(new_mod);
