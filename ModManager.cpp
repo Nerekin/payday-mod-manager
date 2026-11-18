@@ -1,4 +1,5 @@
 #include "ModManager.h"
+#include <filesystem>
 
 void addMod(std::vector<Mod>& mods, const Mod& new_mod) {
     mods.push_back(new_mod);
@@ -35,5 +36,11 @@ void showMods(const std::vector<Mod>& mods) {
         std::cout << "\n--------Mods----------\n";
         std::cout << element.name << "  " << element.version << "   " << (element.installed ? "installed" : "not installed") << std::endl;
         }
+    }
+}
+
+void ensureModDirectoryExist(const std::string &path) {
+    if(!std::filesystem::exists(path)) {
+        std::filesystem::create_directory(path);
     }
 }

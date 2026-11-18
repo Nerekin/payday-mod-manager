@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <limits>
+#include <filesystem>
 
 
 struct Mod {
@@ -17,5 +18,6 @@ void addMod(std::vector<Mod>& mods, const Mod& new_mod);
 bool toggleModStatus(std::vector<Mod>& mods, const std::string& name);
 void findMod(const std::vector<Mod>& mods, const std::string& name);
 void showMods(const std::vector<Mod>& mods);
+void ensureModDirectoryExist(const std::string& path);
 
 #endif
