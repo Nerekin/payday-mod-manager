@@ -73,6 +73,7 @@ do {
 }
 
 int main() {
+    ensureModDirectoryExist("mods");
     std::vector<Mod> mods;
 
     mainMenu(mods);
