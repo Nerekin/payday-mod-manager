@@ -1,4 +1,7 @@
 #include "ModManager.h"
+#include <limits>
+#include <iostream>
+
 
 void mainMenu(std::vector<Mod>& mods) {
     int choice = 0;
